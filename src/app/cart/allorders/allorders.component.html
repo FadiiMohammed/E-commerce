@@ -1,0 +1,25 @@
+<div class="bg-main-light py-3 my-4 order-details px-3">
+  <div class="col-md-4 text-center mx-auto">
+    <h2 class="fw-bold mb-5">
+      <span class="text-success">Thank You!</span> Your payment was
+      <br />received Successfully
+    </h2>
+  </div>
+  <div class="col-md-3 mx-auto order">
+    <h5><span class="text-main">Name: </span>{{ allOrders[0].user.name }}</h5>
+    <h5><span class="text-main">Email: </span>{{ allOrders[0].user.email }}</h5>
+    <h5><span class="text-main">Phone: </span>{{ allOrders[0].user.phone }}</h5>
+    <h5>
+      <span class="text-main">City: </span
+      >{{ allOrders[0].shippingAddress.city }}
+    </h5>
+    <h5>
+      <span class="text-main">Total Price: </span
+      >{{ allOrders[0].totalOrderPrice | currency : "EGP" }}
+    </h5>
+    <h5>
+      <span class="text-main">Order Details: </span
+      >{{ allOrders[0].shippingAddress.details }}
+    </h5>
+  </div>
+</div>

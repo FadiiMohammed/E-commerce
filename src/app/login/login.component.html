@@ -1,0 +1,57 @@
+<div class="container mb-5">
+  <form
+    [formGroup]="loginForm"
+    class="w-75 mx-auto mt-5"
+    (ngSubmit)="login(loginForm)"
+  >
+    <label for="email">Email :</label>
+    <input
+      type="email"
+      id="email"
+      class="form-control my-2"
+      formControlName="email"
+    />
+    <div
+      *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched"
+      class="alert alert-danger"
+    >
+      <p class="mb-0" *ngIf="loginForm.get('email')?.getError('required')">
+        Email is required
+      </p>
+      <p class="mb-0" *ngIf="loginForm.get('email')?.getError('email')">
+        Email invalid
+      </p>
+    </div>
+
+    <label for="password">Password :</label>
+    <input
+      type="password"
+      id="password"
+      class="form-control my-2"
+      formControlName="password"
+    />
+    <div
+      *ngIf="
+        loginForm.get('password')?.errors && loginForm.get('password')?.touched
+      "
+      class="alert alert-danger"
+    >
+      <p class="mb-0" *ngIf="loginForm.get('password')?.getError('required')">
+        Password is required
+      </p>
+    </div>
+    <h4 *ngIf="ApiError" class="alert alert-danger">{{ ApiError }}</h4>
+    <button
+      [disabled]="loginForm.invalid"
+      type="submit"
+      class="btn bg-main text-white d-block ms-auto"
+    >
+      <i *ngIf="isLoading" class="fa fa-spinner fa-spin"></i>
+      <span *ngIf="!isLoading">Login</span>
+    </button>
+    <div class="d-flex flex-column align-items-center">
+      <a class="forgetPw mb-2" routerLink="/forgetPassword">Forgot Password?</a>
+      <p>Not a member yet?<a routerLink="/signup" class="createAcc">Create Account</a></p>
+    </div>
+  </form>
+</div>

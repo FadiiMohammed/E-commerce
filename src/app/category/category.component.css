@@ -1,0 +1,7 @@
+.category-name {
+  transform: translateY(100%);
+  transition: 1s all;
+}
+.category:hover .category-name {
+  transform: translateY(0);
+}

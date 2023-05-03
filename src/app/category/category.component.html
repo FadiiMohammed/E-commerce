@@ -1,0 +1,29 @@
+<div class="container mb-5">
+  <input
+    [(ngModel)]="searchTerm"
+    placeholder="Search Products.."
+    type="text"
+    class="form-control my-5"
+  />
+  <div class="row gy-4">
+    <div
+      class="col-md-3"
+      *ngFor="let category of categoriesData | search : searchTerm"
+    >
+      <a [routerLink]="['/specificCategory', category._id]">
+        <div class="category overflow-hidden position-relative">
+          <div>
+            <img [src]="category.image" height="350" class="w-100" alt="" />
+          </div>
+          <div
+            class="category-name position-absolute top-0 bottom-0 start-0 end-0 bg-main-light d-flex justify-content-start align-items-center"
+          >
+            <p class="text-main fs-4">
+              {{ category.name }}
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

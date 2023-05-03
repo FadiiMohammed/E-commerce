@@ -1,0 +1,41 @@
+<div class="container">
+  <div
+    class="bg-main-light p-5 d-flex justify-content-center"
+    *ngIf="!wishlistData[0]"
+  >
+    <h3 class="text-danger">Wishlist is empty</h3>
+  </div>
+  <div
+    class="row align-items-center mb-3 py-2 bg-main-light"
+    *ngFor="let item of wishlistData"
+  >
+    <div class="col-md-2 product-slider">
+      <img [src]="item?.imageCover" class="w-100" alt="" />
+    </div>
+    <div class="col-md-10 product-desc">
+      <div class="d-flex justify-content-between">
+        <h2 class="mb-3">{{ item?.title }}</h2>
+        <button class="text-danger border-0" (click)="removeWishlist(item.id)">
+          <i class="fa-regular fa-trash-can"></i> Remove
+        </button>
+      </div>
+      <a [routerLink]="['/productDetails', item.id]">
+        <p class="text-muted">{{ item?.description }}</p>
+        <p class="text-muted">{{ item?.brand?.name }}</p>
+        <div class="d-flex justify-content-between mb-3">
+          <span>{{ item.price | currency : "EGB" }}</span>
+          <div>
+            <i class="fa fa-star rating-color"></i>
+            {{ item?.ratingsAverage }}
+          </div>
+        </div>
+      </a>
+      <button
+        (click)="addProduct(item.id)"
+        class="btn bg-main text-white d-block w-100"
+      >
+        + Add to Cart
+      </button>
+    </div>
+  </div>
+</div>

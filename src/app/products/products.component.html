@@ -1,0 +1,45 @@
+<div class="product px-2 py-4 position-relative">
+  <p-toast></p-toast>
+  <i
+    *ngIf="!product.existInWishlist"
+    class="fa-regular fa-heart heartIcon text-danger text-main"
+    style="font-size: 1rem"
+    (click)="addToWishlist(product.id)"
+    pTooltip="Add to your Wishlist"
+    pInputText
+    label="Show"
+    type="button"
+  ></i>
+  <i
+    *ngIf="product.existInWishlist"
+    class="fa-solid fa-heart heartIcon text-danger text-main"
+    style="font-size: 1rem"
+    (click)="removeFromWishlist(product.id)"
+    pTooltip="remove to your Wishlist"
+    pInputText
+    label="Show"
+    type="button"
+  ></i>
+  <a [routerLink]="['/productDetails', product.id]">
+    <img [src]="product.imageCover" class="w-100" alt="" />
+    <p class="text-main">{{ product.category.name }}</p>
+    <h2 class="fs-5" [pTooltip]="product.title">
+      {{
+        product.title.split(" ").length > 2
+          ? product.title.split(" ").splice(0, 2).join(" ") + "..."
+          : product.title
+      }}
+    </h2>
+
+    <div class="d-flex justify-content-between">
+      <span>{{ product.price }}</span>
+      <div>
+        <i class="fa fa-star rating-color"></i>
+        {{ product.ratingsAverage }}
+      </div>
+    </div>
+  </a>
+  <button class="btn bg-main text-white w-100" (click)="addProduct(product.id)">
+    Add to Cart
+  </button>
+</div>

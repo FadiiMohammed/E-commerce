@@ -1,0 +1,76 @@
+<div class="container my-4">
+  <div
+    class="bg-main-light p-5 d-flex justify-content-center"
+    *ngIf="!cartDetails?.data"
+  >
+    <h3 class="text-danger">Cart is empty</h3>
+  </div>
+  <div class="bg-main-light p-5" *ngIf="cartDetails?.data">
+    <div class="d-flex justify-content-between mb-3">
+      <button class="btn btn-info text-white px-4 py-2" (click)="clearCart()">
+        Clear Cart
+      </button>
+      <button class="btn bg-main">
+        <a class="text-white" [routerLink]="['/checkout', cartDetails.data._id]"
+          >Continue to pay</a
+        >
+      </button>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center">
+      <h5>
+        Total Number:
+        <span class="text-main"> {{ cartDetails.numOfCartItems }}</span>
+      </h5>
+      <h5>
+        Total Number:<span class="text-main">{{
+          cartDetails.data.totalCartPrice
+        }}</span>
+      </h5>
+    </div>
+    <div
+      class="bg-main-light p-5 d-flex justify-content-center"
+      *ngIf="cartDetails.numOfCartItems == 0"
+    >
+      <h3 class="text-danger">No Products Added to the Cart</h3>
+    </div>
+    <div
+      class="row p-2 border-bottom"
+      *ngFor="let product of cartDetails.data.products | cartFilter"
+    >
+      <div class="col-md-1">
+        <img [src]="product.product.imageCover" class="w-100" alt="" />
+      </div>
+      <div class="col-md-11">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h5>{{ product.product.title }}</h5>
+            <h6 class="text-main">{{ product.price | currency : "EGP" }}</h6>
+            <button
+              class="border-0 m-0 p-0 text-danger"
+              (click)="removeCart(product.product.id)"
+            >
+              <i class="fa-regular fa-trash-can"></i> Remove
+            </button>
+          </div>
+          <div>
+            <button
+              class="btn btn-count mx-2"
+              (click)="updateCart(product.product.id, product.count + 1)"
+              p
+            >
+              +
+            </button>
+            <span>{{ product.count }}</span>
+            <button
+              class="btn btn-count mx-2"
+              (click)="updateCart(product.product.id, product.count - 1)"
+            >
+              -
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

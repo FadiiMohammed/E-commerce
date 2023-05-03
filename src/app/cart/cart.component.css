@@ -1,0 +1,7 @@
+.btn-count {
+  border-color: #0aad0a;
+}
+.btn-count:hover {
+  background-color: #0aad0a;
+  color: white;
+}

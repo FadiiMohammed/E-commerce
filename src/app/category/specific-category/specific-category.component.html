@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row align-items-center bg-main-light mt-5">
+    <div class="col-md-4">
+      <div>
+        <img [src]="categoryDetails.image" class="w-100" alt="" />
+      </div>
+    </div>
+    <div class="col-md-8">
+      <p><span class="text-main">Slug: </span>{{ categoryDetails.slug }}</p>
+      <p><span class="text-main">Name: </span>{{ categoryDetails.name }}</p>
+      <p>
+        <span class="text-main">Created at: </span
+        >{{ categoryDetails.createdAt }}
+      </p>
+      <p>
+        <span class="text-main">Updated at: </span
+        >{{ categoryDetails.updatedAt }}
+      </p>
+    </div>
+  </div>
+</div>

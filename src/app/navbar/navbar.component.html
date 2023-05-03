@@ -1,0 +1,100 @@
+<nav class="navbar navbar-expand-lg bg-white fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="assets/images/logo.svg" alt="" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home" routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="cart" routerLinkActive="active"
+            >Cart</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="featuredProducts"
+            routerLinkActive="active"
+            >Products</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="category" routerLinkActive="active"
+            >Categories</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="brands" routerLinkActive="active"
+            >Brands</a
+          >
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
+        <li class="nav-item position-relative" *ngIf="isLoggedIn">
+          <a class="nav-link cursor-pointer" routerLink="wishlist"
+            ><i class="fa fa-heart text-danger text-main fs-3"></i>
+            <p
+              class="text-danger position-absolute top-0 end-50 translate-middle fw-bold"
+            >
+              {{ numOfWishlist }}
+            </p>
+          </a>
+        </li>
+        <li class="nav-item position-relative" *ngIf="isLoggedIn">
+          <a class="nav-link cursor-pointer" routerLink="cart"
+            ><i class="fa fa-shopping-cart text-main fs-3"></i>
+            <p
+              class="text-main position-absolute top-0 end-50 translate-middle fw-bold"
+            >
+              {{ numOfCartItems }}
+            </p>
+          </a>
+        </li>
+        <li class="navbar-nav d-flex align-items-center">
+          <i class="fab mx-2 fa-instagram"></i>
+          <i class="fab mx-2 fa-facebook"></i>
+          <i class="fab mx-2 fa-tiktok"></i>
+          <i class="fab mx-2 fa-twitter"></i>
+          <i class="fab mx-2 fa-linkedin"></i>
+          <i class="fab mx-2 fa-youtube"></i>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="login" routerLinkActive="active"
+            >Login</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link" routerLink="signup" routerLinkActive="active"
+            >Register</a
+          >
+        </li>
+
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a
+            (click)="logOut()"
+            class="nav-link cursor-pointer"
+            routerLink="signup"
+            routerLinkActive="active"
+            >LogOut</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

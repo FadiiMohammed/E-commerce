@@ -1,0 +1,7 @@
+.brand-name {
+  transform: translateY(100%);
+  transition: 1s all;
+}
+.brand:hover .brand-name {
+  transform: translateY(0);
+}

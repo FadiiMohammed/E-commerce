@@ -1,0 +1,9 @@
+.forgetPw,
+.createAcc {
+  color: #0aad0a;
+  text-decoration: underline;
+}
+.forgetPw:hover,
+.createAcc:hover {
+  color: green;
+}

@@ -1,0 +1,11 @@
+.navbar-nav i,
+.nav-link {
+  transition: 0.5s;
+}
+.nav-link:hover,
+.navbar-nav i:hover {
+  color: #0aad0a;
+}
+.nav-link.active {
+  color: #0aad0a;
+}
