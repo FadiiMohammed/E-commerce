@@ -14,6 +14,7 @@ export class FeauteredProductsComponent implements OnInit {
   allProducts: Product[] = [];
   WishlistDataIds: string[] = [];
   productInWishlist: Product[] = [];
+
   constructor(
     private _productsService: ProductsService,
     private _wishlistService: WishlistService
@@ -26,9 +27,6 @@ export class FeauteredProductsComponent implements OnInit {
     this._productsService.getProducts().subscribe({
       next: (res) => {
         console.log(res.data);
-        this.WishlistDataIds = this._wishlistService.WishlistData.map((obj) => {
-          return obj._id;
-        });
         this.allProducts = res.data;
       },
     });

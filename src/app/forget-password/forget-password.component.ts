@@ -75,8 +75,6 @@ export class ForgetPasswordComponent {
         next: (response) => {
           console.log(response);
           this.saveLoader = false;
-          // localStorage.setItem('newUserToken', res.token);
-          // this._authService.getNewUserData();
           this._router.navigate(['/login']);
         },
         error: (err) => {
