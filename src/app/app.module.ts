@@ -28,9 +28,7 @@ import { HttpInterceptorInterceptor } from './http-interceptor.interceptor';
 import { LoaderComponent } from './loader/loader.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { NgHttpLoaderModule } from 'ng-http-loader';
-import { MegaMenuModule } from 'primeng/megamenu';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { FooterComponent } from './footer/footer.component';
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -69,8 +67,6 @@ import { FooterComponent } from './footer/footer.component';
     ButtonModule,
     ToastModule,
     NgHttpLoaderModule.forRoot(),
-    MegaMenuModule,
-    ConfirmDialogModule,
   ],
   providers: [
     {
