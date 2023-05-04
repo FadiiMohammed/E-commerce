@@ -55,11 +55,6 @@ const routes: Routes = [
   { path: 'allorders', component: AllordersComponent },
 
   {
-    path: 'setting',
-    loadChildren: () =>
-      import('./setting/setting.module').then((m) => m.SettingModule),
-  },
-  {
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then((m) => m.CartModule),
   },
