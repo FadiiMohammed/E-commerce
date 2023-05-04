@@ -21,7 +21,6 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
 import { SearchTermPipe } from './search-term.pipe';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
-import { DropdownComponent } from './dropdown/dropdown.component';
 import { CardModule } from 'primeng/card';
 import { CardComponent } from './card/card.component';
 import { StringPipe } from './string.pipe';
@@ -50,7 +49,6 @@ import { FooterComponent } from './footer/footer.component';
     ProductDetailsComponent,
     MainSliderComponent,
     SearchTermPipe,
-    DropdownComponent,
     CardComponent,
     StringPipe,
     LoaderComponent,
